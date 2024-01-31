@@ -55,6 +55,9 @@ devDependencies:
   '@sanity/eslint-config-studio':
     specifier: ^3.0.1
     version: 3.0.1(eslint@8.56.0)(typescript@5.3.3)
+  '@sanity/scheduled-publishing':
+    specifier: latest
+    version: 1.3.0(@sanity/ui@2.0.1)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)(sanity@3.27.0)(styled-components@6.1.8)
   '@sveltejs/adapter-vercel':
     specifier: ^5.1.0
     version: 5.1.0(@sveltejs/kit@2.5.0)
@@ -2762,6 +2765,40 @@ packages:
       '@sanity/client': 6.12.3
       '@sanity/uuid': 3.0.2
 
+  /@sanity/scheduled-publishing@1.3.0(@sanity/ui@2.0.1)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)(sanity@3.27.0)(styled-components@6.1.8):
+    resolution: {integrity: sha512-Yvhk8OtWaZyb86jypOwjLrvd0ToCoB6ygnbv7Femb0HLdOFRo9urIN97beRsqGHsXJGDWeFszbaJky9jxfHjpg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@sanity/ui': ^1.0 || ^2.0
+      react: ^18
+      react-dom: ^18
+      sanity: ^3.0.0
+      styled-components: ^5.0 || ^6.0
+    dependencies:
+      '@sanity/color': 2.2.5
+      '@sanity/icons': 2.10.0(react@18.2.0)
+      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/ui': 2.0.1(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+      '@sanity/util': 3.27.0
+      '@tanstack/react-virtual': 3.0.2(react-dom@18.2.0)(react@18.2.0)
+      '@vvo/tzdb': 6.125.0
+      date-fns: 2.30.0
+      date-fns-tz: 2.0.0(date-fns@2.30.0)
+      debug: 4.3.4
+      lodash: 4.17.21
+      pluralize: 8.0.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-focus-lock: 2.9.7(@types/react@18.2.48)(react@18.2.0)
+      rxjs: 7.8.1
+      sanity: 3.27.0(@types/node@14.18.33)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+      styled-components: 6.1.8(react-dom@18.2.0)(react@18.2.0)
+      swr: 1.3.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - supports-color
+    dev: true
+
   /@sanity/schema@3.27.0:
     resolution: {integrity: sha512-tWeUF4IeKLCkjou6QQZnRvpC8S51JXG5cnfhgMjU4HoEKhuZNgSZ/T45tUBYnqm2sIfjE8mzAANnGoZ25pJzjQ==}
     dependencies:
@@ -3004,6 +3041,21 @@ packages:
       '@tanstack/virtual-core': 3.0.0-beta.54
       react: 18.2.0
 
+  /@tanstack/react-virtual@3.0.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9XbRLPKgnhMwwmuQMnJMv+5a9sitGNCSEtf/AZXzmJdesYk7XsjYHaEDny+IrJzvPNwZliIIDwCRiaUqR3zzCA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.0.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+  /@tanstack/virtual-core@3.0.0:
+    resolution: {integrity: sha512-SYXOBTjJb05rXa2vl55TTwO40A6wKu0R5i1qQwhJYNDIqaIGF7D0HsLw+pJAyi2OvntlEIVusx3xtbbgSUi6zg==}
+    dev: true
+
   /@tanstack/virtual-core@3.0.0-beta.54:
     resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
 
@@ -3086,7 +3138,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.11.13
+      '@types/node': 20.11.14
 
   /@types/hast@2.3.10:
     resolution: {integrity: sha512-McWspRw8xx8J9HurkVBfYj0xKoE25tOFlHGdx4MJ5xORQrMGZNqJhVQWaIbm6Oyla5kYOXtDiopzKRJzEOkwJw==}
@@ -3120,8 +3172,8 @@ packages:
   /@types/node@14.18.33:
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
 
-  /@types/node@20.11.13:
-    resolution: {integrity: sha512-5G4zQwdiQBSWYTDAH1ctw2eidqdhMJaNsiIDKHFr55ihz5Trl2qqR8fdrT732yPBho5gkNxXm67OxWFBqX9aPg==}
+  /@types/node@20.11.14:
+    resolution: {integrity: sha512-w3yWCcwULefjP9DmDDsgUskrMoOy5Z8MiwKHr1FvqGPtx7CvJzQvxD7eKpxNtklQxLruxSXWddyeRtyud0RcXQ==}
     dependencies:
       undici-types: 5.26.5
 
@@ -3190,7 +3242,7 @@ packages:
   /@types/tar-stream@3.1.3:
     resolution: {integrity: sha512-Zbnx4wpkWBMBSu5CytMbrT5ZpMiF55qgM+EpHzR4yIDu7mv52cej8hTkOc6K+LzpkOAbxwn/m7j3iO+/l42YkQ==}
     dependencies:
-      '@types/node': 20.11.13
+      '@types/node': 20.11.14
 
   /@types/unist@2.0.10:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
@@ -3617,6 +3669,10 @@ packages:
       estree-walker: 3.0.3
       loupe: 2.3.7
       pretty-format: 29.7.0
+    dev: true
+
+  /@vvo/tzdb@6.125.0:
+    resolution: {integrity: sha512-zxOP62q3CUYIIe6sL/IK6AhmhnPUuHPNx86qZTXuzQHo/QhQRTfXb331poUStTDdZgBoLc6BADUATbGGN/1d4A==}
     dev: true
 
   /abbrev@1.1.1:
@@ -4062,7 +4118,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001581
-      electron-to-chromium: 1.4.651
+      electron-to-chromium: 1.4.652
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -4470,6 +4526,14 @@ packages:
   /dataloader@2.2.2:
     resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
 
+  /date-fns-tz@2.0.0(date-fns@2.30.0):
+    resolution: {integrity: sha512-OAtcLdB9vxSXTWHdT8b398ARImVwQMyjfYGkKD2zaGpHseG2UPHbHjXELReErZFxWdSLph3c2zOaaTyHfOhERQ==}
+    peerDependencies:
+      date-fns: '>=2.0.0'
+    dependencies:
+      date-fns: 2.30.0
+    dev: true
+
   /date-fns@2.30.0:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
@@ -4703,8 +4767,8 @@ packages:
       time-span: 4.0.0
     dev: false
 
-  /electron-to-chromium@1.4.651:
-    resolution: {integrity: sha512-jjks7Xx+4I7dslwsbaFocSwqBbGHQmuXBJUK9QBZTIrzPq3pzn6Uf2szFSP728FtLYE3ldiccmlkOM/zhGKCpA==}
+  /electron-to-chromium@1.4.652:
+    resolution: {integrity: sha512-XvQaa8hVUAuEJtLw6VKQqvdOxTOfBLWfI10t2xWpezx4XXD3k8bdLweEKeItqaa0+OkJX5l0mP1W+JWobyIDrg==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -9063,6 +9127,14 @@ packages:
       locate-character: 3.0.0
       magic-string: 0.30.6
       zimmerframe: 1.1.0
+
+  /swr@1.3.0(react@18.2.0):
+    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: true
 
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
