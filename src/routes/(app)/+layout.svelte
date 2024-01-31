@@ -1,0 +1,27 @@
+<!-- /src/routes/+layout.svelte -->
+<script lang="ts">
+	import '../../app.css';
+
+	import { onMount } from 'svelte';
+	import { enableOverlays } from '@sanity/overlays';
+	import { useLiveMode } from '@sanity/svelte-loader';
+	import { client } from '$lib/sanity';
+	import { PUBLIC_SANITY_STUDIO_URL } from '$env/static/public';
+
+	onMount(() => enableOverlays());
+
+	onMount(() =>
+		useLiveMode({
+			// If `stega.studioUrl` was not provided to the client instance in `sanity.ts`, a studioUrl should be provided here
+			studioUrl: PUBLIC_SANITY_STUDIO_URL,
+			// ...or alternatively provide the stega client directly
+			client: client.withConfig({
+				stega: { ...client.config().stega, enabled: true }
+			})
+		})
+	);
+</script>
+
+<div class="app">
+	<slot />
+</div>
