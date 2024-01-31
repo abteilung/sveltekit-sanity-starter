@@ -16,6 +16,8 @@ npm create svelte@latest my-app
 
 ## Developing
 
+Before running the project, please copy .env.example to .env and adjust settings to your needs. You'll need a Sanity project (you'll get it for free).
+
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
