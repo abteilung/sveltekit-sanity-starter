@@ -46,6 +46,12 @@ devDependencies:
   '@playwright/test':
     specifier: ^1.41.1
     version: 1.41.1
+  '@portabletext/svelte':
+    specifier: ^2.1.5
+    version: 2.1.5(svelte@5.0.0-next.42)
+  '@portabletext/types':
+    specifier: ^2.0.8
+    version: 2.0.8
   '@sanity/eslint-config-studio':
     specifier: ^3.0.1
     version: 3.0.1(eslint@8.56.0)(typescript@5.3.3)
@@ -2301,6 +2307,15 @@ packages:
       '@portabletext/types': 2.0.8
       react: 18.2.0
 
+  /@portabletext/svelte@2.1.5(svelte@5.0.0-next.42):
+    resolution: {integrity: sha512-NDHIT6TRPnWCGnr0VjwsmYtuhZRVkD41aexajtElwsVLSoYUf/mxXd6PVxjg1e12DfubQo4aQv6lpRthIVbIIA==}
+    peerDependencies:
+      svelte: '>=3.47.0 <5.0.0'
+    dependencies:
+      '@portabletext/toolkit': 2.0.10
+      svelte: 5.0.0-next.42
+    dev: true
+
   /@portabletext/toolkit@2.0.10:
     resolution: {integrity: sha512-d+F9JvpnMEx7kd6saZ9OWA4U1Iwuokh6TOht7iqkfWU+0ivh9yM4v+b0Kpu+iiPcElicoabhtXol+yTvWJ1jDw==}
     engines: {node: ^14.13.1 || >=16.0.0}
@@ -4366,6 +4381,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    bundledDependencies: false
 
   /create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}

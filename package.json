@@ -35,6 +35,8 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.41.1",
+		"@portabletext/svelte": "^2.1.5",
+		"@portabletext/types": "^2.0.8",
 		"@sanity/eslint-config-studio": "^3.0.1",
 		"@sveltejs/adapter-vercel": "^5.1.0",
 		"@sveltejs/kit": "^2.5.0",
