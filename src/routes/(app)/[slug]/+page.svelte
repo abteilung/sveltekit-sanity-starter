@@ -1,5 +1,7 @@
 <!-- /src/routes/[slug]/+page.svelte -->
 <script lang="ts">
+	import Image from '$lib/components/ui/Image.svelte';
+
 	import type { PageData } from './$types';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { postQuery, type PostResult } from '$lib/queries';
@@ -21,5 +23,5 @@
 	<div data-sanity={encodeDataAttribute(['author', 'name'])}>
 		{page.author.name}<br />
 	</div>
-	<img src={page.author.avatar} alt="" class="w-24 h-24 rounded-full" />
+	<Image image={page.author.image} alt={page.author.name} class="w-24 h-24 rounded-full" />
 {/if}

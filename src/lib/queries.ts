@@ -50,13 +50,45 @@ const linkTypes = `
   }
 `;
 
+export const imageMeta = `
+  "alt": coalesce(image.alt, image->altText),
+  "image": image {
+    asset-> {
+      _id,
+      url,
+      metadata {
+        lqip,
+        "bgColor": palette.dominant.background
+      },
+    },
+      hotspot,
+      crop
+  },
+  "customRatio": image.customRatio
+`;
+
 // src/lib/queries.ts
 export const postQuery = `*[_type == "post" && slug.current == $slug][0]{
     title,
-    author->{name, "avatar": image.asset->url},
+    author->{name, "imageUrl": image.asset->url, "image": image {
+        asset-> {
+          _id,
+          url,
+          metadata {
+            lqip,
+            "bgColor": palette.dominant.background
+          },
+        },
+          hotspot,
+          crop
+      },
+    },
 }`;
 
-export const getAllPostsQuery = `*[_type == "post"]`;
+export const getAllPostsQuery = `*[_type == "post"]{
+    ...,
+    ${imageMeta},
+}`;
 
 export interface PostResult {
 	title: string;
