@@ -33,8 +33,8 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: '#134394',
-				accent: '#21CD98',
+				primary: '#e53357',
+				accent: '#5aaa9d',
 				alert: '#d53a39',
 				success: '#4caf50',
 				neutral: '#f3f3f2',
@@ -42,16 +42,7 @@ module.exports = {
 				grey: '#aaaaaa',
 				black: '#282838',
 				light: '#f3f6fa',
-				white: '#ffffff',
-
-				thermotransfer: '#a3c940',
-				thermodirekt: '#fffe54',
-				thermokunststoff: '#d7feff',
-				inkjet: '#b9aadb',
-				textil: '#c0c0c0',
-				kassenrollen: '#808080',
-				papierrollen: '#d9d9d9',
-				rfid: '#d9d9d9'
+				white: '#ffffff'
 			},
 			fontSize: {
 				xs: ['14px', { letterSpacing: '0' }],
@@ -68,9 +59,8 @@ module.exports = {
 				heading: ['Open Sans Variable', 'sans-serif']
 			},
 			boxShadow: {
-				ades: '0 10px 25px 0px rgba(19,67,148,0.05)',
-				'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.1)',
-				'ades-dark': '0 0px 25px -5px rgba(0,0,0,0.5)'
+				primary: '0 10px 25px 0px rgba(19,67,148,0.05)',
+				'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.1)'
 			}
 		}
 	},

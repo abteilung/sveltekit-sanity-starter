@@ -13,7 +13,7 @@ const linkTypes = `
     "href": "/author/" + slug.current,
   },
   _type == "post" => {
-    "href": "/etiketten-blog/" + slug.current,
+    "href": "/posts/" + slug.current,
   },
   _type == "casestudy" => {
     "href": "/case/" + slug.current,
@@ -52,7 +52,7 @@ const linkTypes = `
 
 export const imageMeta = `
   "alt": coalesce(image.alt, image->altText),
-  "image": image {
+  "image": coalesce(image, mainImage) {
     asset-> {
       _id,
       url,
@@ -88,6 +88,7 @@ export const postQuery = `*[_type == "post" && slug.current == $slug][0]{
 export const getAllPostsQuery = `*[_type == "post"]{
     ...,
     ${imageMeta},
+    ${linkTypes}
 }`;
 
 export interface PostResult {

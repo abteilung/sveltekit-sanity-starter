@@ -15,10 +15,6 @@
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
-<ul class="grid grid-cols-3 gap-8">
-	{#each page as post}
-		<li>
-			<Card {...post} />
-		</li>
-	{/each}
-</ul>
+{#each page as post}
+	<Card {...post} />
+{/each}

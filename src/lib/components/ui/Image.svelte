@@ -5,6 +5,8 @@
 	import { fade } from 'svelte/transition';
 
 	export let portableText: any;
+	let additionalClass: string = '';
+	export { additionalClass as class };
 	export let showBgColor: boolean = true;
 	export let showLqip: boolean = true;
 
@@ -104,7 +106,7 @@
 
 {#if src && isLoaded}
 	<div
-		class={cn('image w-full overflow-hidden')}
+		class={cn('image w-full overflow-hidden', additionalClass)}
 		in:fade={{ duration: 200 }}
 		out:fade={{ duration: 200 }}
 		style={imageStyle}

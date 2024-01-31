@@ -22,6 +22,6 @@
 	);
 </script>
 
-<div class="app">
+<div class="container">
 	<slot />
 </div>
