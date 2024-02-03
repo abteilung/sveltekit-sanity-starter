@@ -1,6 +1,7 @@
 <!-- /src/routes/+layout.svelte -->
 <script lang="ts">
 	import '../../app.css';
+	import { themeChange } from 'theme-change';
 
 	import Navbar from '$lib/components/Navbar.svelte';
 
@@ -11,6 +12,12 @@
 	import { useLiveMode } from '@sanity/svelte-loader';
 	import { client } from '$lib/sanity';
 	import { PUBLIC_SANITY_STUDIO_URL } from '$env/static/public';
+
+	// NOTE: the element that is using one of the theme attributes must be in the DOM on mount
+	onMount(() => {
+		themeChange(false);
+		// 👆 false parameter is required for svelte
+	});
 
 	onMount(() => enableOverlays());
 
@@ -27,6 +34,7 @@
 </script>
 
 <Navbar />
+<button data-toggle-theme="dark,light" data-act-class="dark">Theme</button>
 
 <div class="container">
 	<Stat class="" />
