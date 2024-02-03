@@ -22,7 +22,7 @@ Soon, there will be more:
 
 - Auto SEO-Tags in the frontend with fallbacks
 - an RSS Feed for Posts and News
-- Auuto generated OG Images
+- Auto generated OG Images
 
 ## Developing
 
