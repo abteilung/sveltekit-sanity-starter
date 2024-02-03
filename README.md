@@ -1,18 +1,28 @@
-# create-svelte
+# Sanity.io & SvelteKit & Tailwind etc. Starter
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is a Sanity.io & SvelteKit & TailwindCSS & daisyUI & Stuff starter repo. We've put much research and effort into this very well spiced set of tools.
 
-## Creating a project
+## Sanity.io
 
-If you're seeing this, you've probably already done this step. Congrats!
+Basic configuration with many useful modules installed and preconfigured for your convenience.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Most importantly, Presentation is enabled which allows you to conveniently edit your website Sanity's Presentation (Preview) mode.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Tailwind & daisyUI
+
+We like Tailwind CSS a lot. daisyUI adds many useful and nicely configured components to the plate. While CSS only components are nice, we'll enhance some components with some Svelte Magic.
+
+The base template includes light / dark modes.
+
+## SEO Features included
+
+As of now we render Robots.txt and Sitemap.xml from Sanity documents. Adjust them to your needs.
+
+Soon, there will be more:
+
+- Auto SEO-Tags in the frontend with fallbacks
+- an RSS Feed for Posts and News
+- Auuto generated OG Images
 
 ## Developing
 
