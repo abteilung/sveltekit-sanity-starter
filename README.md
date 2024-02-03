@@ -2,6 +2,10 @@
 
 This is a Sanity.io & SvelteKit & TailwindCSS & daisyUI & Stuff starter repo. We've put much research and effort into this very well spiced set of tools.
 
+## WIP
+
+This repo is just progressing. Expect many breaking changes for the time being.
+
 ## Sanity.io
 
 Basic configuration with many useful modules installed and preconfigured for your convenience.
