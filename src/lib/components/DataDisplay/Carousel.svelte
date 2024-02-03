@@ -1,9 +1,23 @@
 <!-- Build with JS https://www.embla-carousel.com/ -->
 <script>
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	import Autoplay from 'embla-carousel-autoplay';
+
+	let emblaApi;
+	let options = { loop: false };
+	let plugins = [Autoplay()];
+
+	function onInit(event) {
+		emblaApi = event.detail;
+		console.log(emblaApi.slideNodes()); // Access API
+	}
 </script>
 
-<div class="carousel rounded-box embla" use:emblaCarouselSvelte>
+<div
+	class="carousel rounded-box embla"
+	use:emblaCarouselSvelte={{ options, plugins }}
+	on:emblaInit={onInit}
+>
 	<div class="embla__container">
 		<div class="carousel-item embla__slide">
 			<img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
@@ -40,3 +54,16 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.embla {
+		overflow: hidden;
+	}
+	.embla__container {
+		display: flex;
+	}
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+</style>

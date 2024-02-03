@@ -4,7 +4,7 @@
 
 	import Navbar from '$lib/components/Navbar.svelte';
 
-	import { Stat, Checkbox } from '$lib/components';
+	import { Stat, Checkbox, Carousel } from '$lib/components';
 
 	import { onMount } from 'svelte';
 	import { enableOverlays } from '@sanity/overlays';
@@ -30,6 +30,7 @@
 
 <div class="container">
 	<Stat class="" />
+	<Carousel />
 	<Checkbox />
 	<slot />
 </div>
