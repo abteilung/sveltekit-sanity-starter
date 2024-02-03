@@ -2,6 +2,10 @@
 <script lang="ts">
 	import '../../app.css';
 
+	import Navbar from '$lib/components/Navbar.svelte';
+
+	import { Stat, Checkbox } from '$lib/components';
+
 	import { onMount } from 'svelte';
 	import { enableOverlays } from '@sanity/overlays';
 	import { useLiveMode } from '@sanity/svelte-loader';
@@ -22,6 +26,10 @@
 	);
 </script>
 
+<Navbar />
+
 <div class="container">
+	<Stat class="" />
+	<Checkbox />
 	<slot />
 </div>

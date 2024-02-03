@@ -21,14 +21,8 @@ const linkTypes = `
   _type == "service" => {
     "href": "/dienstleistungen/" + slug.current,
   },
-  _type == "adesProduct" => {
-    "href": "/produktepalette/" + categoryAdesProduct.slug.current + '/' + slug.current,
-  },
   _type == "page" => {
     "href": "/" + slug.current,
-  },
-  _type == "categoryAdesProduct" => {
-    "href": "/produktepalette/" + slug.current,
   },
   _type == "categorySolution" => {
     "href": "/etikettier-loesungen/" + slug.current,
@@ -85,7 +79,12 @@ export const postQuery = `*[_type == "post" && slug.current == $slug][0]{
     },
 }`;
 
-export const getAllPostsQuery = `*[_type == "post"]{
+export const authorQuery = `*[_type == "author" && slug.current == $slug][0]{
+    name,
+    ${imageMeta}
+}`;
+
+export const allPostsQuery = `*[_type == "post"]{
     ...,
     ${imageMeta},
     ${linkTypes}
@@ -103,6 +102,11 @@ export interface PostResult {
 		};
 	};
 	// ...etc
+}
+
+export interface AuthorResult {
+	name: string;
+	imageUrl: string;
 }
 
 export const getSitemap = `

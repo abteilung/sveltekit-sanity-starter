@@ -2,12 +2,12 @@
 	import { Card } from '$lib/components';
 
 	import { useQuery } from '@sanity/svelte-loader';
-	import { getAllPostsQuery, type PostResult } from '$lib/queries';
+	import { allPostsQuery, type PostResult } from '$lib/queries';
 
 	export let data: PageData;
 	const { initial, params } = data;
 
-	const query = useQuery<PostResult>(getAllPostsQuery, params, { initial });
+	const query = useQuery<PostResult>(allPostsQuery, params, { initial });
 
 	$: ({ data: page, loading, encodeDataAttribute } = $query);
 </script>

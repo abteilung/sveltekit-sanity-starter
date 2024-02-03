@@ -27,7 +27,6 @@
 	let calculatedHeight: number;
 
 	onMount(() => {
-		isLoaded = true;
 		initializeImage();
 	});
 
@@ -46,6 +45,8 @@
 		calculatedHeight = sourceHeight;
 		src = calculateImageUrl(image, sourceWidth, calculatedHeight);
 		largeSrc = calculateLargeImageUrl(image, sourceWidth, calculatedHeight);
+
+		isLoaded = true;
 	}
 
 	$: {
@@ -68,9 +69,9 @@
 		if (!image) return defaultSrc;
 		const builder: any = urlForImage(
 			image,
-			Math.floor(width)
+			Math.floor(width),
 			// Das hier croppt die Bilder. Bei Logos ist das schlecht.
-			// height !== undefined ? Math.floor(height) : undefined
+			height !== undefined ? Math.floor(height) : undefined
 		);
 		return typeof builder.url === 'function' ? builder.url() : builder.toString();
 	}
@@ -107,8 +108,7 @@
 {#if src && isLoaded}
 	<div
 		class={cn('image w-full overflow-hidden', additionalClass)}
-		in:fade={{ duration: 200 }}
-		out:fade={{ duration: 200 }}
+		transition:fade={{ duration: 200 }}
 		style={imageStyle}
 	>
 		{#if image || defaultSrc}

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import Button from '$lib/components/Actions/Button.svelte';
+
 	import { Image } from '$lib/components';
 	import { truncateString } from '$lib/utils';
 
@@ -9,7 +11,6 @@
 		short: string;
 		description: string;
 		image: string;
-		hasFilter: boolean;
 		icon: string;
 		href: string;
 		readMore: string;
@@ -21,26 +22,18 @@
 		short: '',
 		description: '',
 		image: '',
-		hasFilter: false,
 		icon: '',
 		href: '',
 		readMore: 'Read more…'
 	};
 
-	export let {
-		title,
-		date,
-		short,
-		description,
-		image,
-		hasFilter,
-		icon,
-		href,
-		readMore = 'Read more…'
-	} = item;
+	let additionalClasses: string = '';
+	export { additionalClasses as class };
+
+	export let { title, date, short, description, image, icon, href, readMore } = item;
 
 	$: descriptionText = short ? truncateString(short, 12) : 'No description available';
-	$: cardClasses = cn('group relative space-y-6');
+	$: cardClasses = 'card bg-base-100 shadow-xl group';
 
 	// Check if Post ist new (less than 10 days old)
 	let dateObject: { date: string } = { date }; // Example date object
@@ -53,35 +46,37 @@
 	let isWithinTenDays: boolean = dayDifference <= 10;
 </script>
 
-<svelte:element this={href ? 'a' : 'div'} {href} class={cardClasses}>
+<svelte:element this={href ? 'a' : 'div'} {href} class={cn(cardClasses, additionalClasses)}>
 	{#if image}
-		<div class="overflow-hidden">
-			{#if isWithinTenDays}
-				<div
-					class="absolute -right-7 -top-7 z-10 flex h-14 w-14 items-center justify-center rounded-full bg-black text-white shadow-xl"
-				>
-					<div>New</div>
-				</div>
-			{/if}
+		<figure>
 			<!-- This updates the image for sure -->
 			{#key image}
 				<Image
 					alt={title}
-					hasFilter={true}
 					{image}
 					width={720}
-					class="w-full scale-100 duration-150 group-hover:scale-105 group-active:scale-105"
+					class="w-full scale-100 duration-500 group-hover:scale-[1.02] group-active:scale-105"
 				/>
 			{/key}
-		</div>
+		</figure>
 	{/if}
-	<h3>{title}</h3>
-	{#if description || descriptionText || short}
-		<div class="text-black/50">
-			<p>{description || descriptionText || short}</p>
+	<div class="card-body">
+		<h2 class="card-title">
+			{title}
+			{#if isWithinTenDays}
+				<div class="badge badge-secondary">NEW</div>
+			{/if}
+		</h2>
+		{#if description || descriptionText || short}
+			<p>
+				{description || descriptionText || short}
+			</p>
+		{/if}
+
+		<div class="card-actions justify-end">
+			<Button color="btn-primary">
+				{readMore}
+			</Button>
 		</div>
-	{/if}
-	<div class="flex items-center">
-		<p class="mb-0 self-end text-sm group-hover:text-accent">{readMore}</p>
 	</div>
 </svelte:element>

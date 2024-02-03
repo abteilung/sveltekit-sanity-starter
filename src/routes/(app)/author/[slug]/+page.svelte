@@ -4,12 +4,12 @@
 
 	import type { PageData } from './$types';
 	import { useQuery } from '@sanity/svelte-loader';
-	import { postQuery, type PostResult } from '$lib/queries';
+	import { authorQuery, type AuthorResult } from '$lib/queries';
 
 	export let data: PageData;
 	const { initial, params } = data;
 
-	const query = useQuery<PostResult>(postQuery, params, { initial });
+	const query = useQuery<AuthorResult>(authorQuery, params, { initial });
 
 	$: ({ data: page, loading, encodeDataAttribute } = $query);
 </script>
@@ -21,11 +21,11 @@
 		{page.title}
 	</h1>
 	<div data-sanity={encodeDataAttribute(['author', 'name'])}>
-		{page.author.name}<br />
+		{page.name}<br />
 	</div>
 	<Image
-		image={page.author.image}
-		alt={page.author.name}
+		image={page.image}
+		alt={page.name}
 		width="160"
 		height="160"
 		class="object-cover w-24 h-24 rounded-full"
