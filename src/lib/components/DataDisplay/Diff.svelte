@@ -1,9 +1,18 @@
-<div class="diff aspect-[16/9]">
+<script lang="ts">
+	import { cn } from '$lib/utils';
+
+	let { beforeImage, afterImage, aspectRatio } = $props();
+
+	let diffClasses: string = 'diff';
+	aspectRatio = aspectRatio || 'aspect-[16/9]';
+</script>
+
+<div class={cn(diffClasses, aspectRatio)}>
 	<div class="diff-item-1">
-		<img alt="daisy" src="https://daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a.jpg" />
+		<img alt="daisy" src={beforeImage} />
 	</div>
 	<div class="diff-item-2">
-		<img alt="daisy" src="https://daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a-bw.jpg" />
+		<img alt="daisy" src={afterImage} />
 	</div>
 	<div class="diff-resizer"></div>
 </div>

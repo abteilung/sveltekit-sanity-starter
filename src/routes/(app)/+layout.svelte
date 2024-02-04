@@ -4,7 +4,7 @@
 
 	import Navbar from '$lib/components/Navbar.svelte';
 
-	import { Stat, Checkbox, Carousel, ThemeController } from '$lib/components';
+	import { Stat, Checkbox, Carousel, Diff, ThemeController } from '$lib/components';
 
 	import { onMount } from 'svelte';
 	import { enableOverlays } from '@sanity/overlays';
@@ -27,8 +27,13 @@
 </script>
 
 <Navbar />
-<ThemeController></ThemeController>
+<ThemeController />
 <div class="container">
+	<Diff
+		beforeImage="https://daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a.jpg"
+		afterImage="https://daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a-blur.jpg"
+	/>
+
 	<Stat class="" />
 	<Carousel />
 	<Checkbox />
