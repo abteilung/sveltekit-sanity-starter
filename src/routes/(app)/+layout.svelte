@@ -5,7 +5,7 @@
 
 	import Navbar from '$lib/components/Navbar.svelte';
 
-	import { Section, Stat, Checkbox, Carousel, Diff } from '$lib/components';
+	import { Section, Stat, Carousel, Diff } from '$lib/components';
 
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
