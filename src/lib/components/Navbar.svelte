@@ -1,6 +1,10 @@
-<main class="min-h-screen w-full grid place-items-center">
+<script lang="ts">
+	import { ThemeController } from '$lib/components';
+</script>
+
+<main class=" w-full grid place-items-center">
 	<div class="container mx-auto px-5">
-		<div class="navbar bg-white px-0 py-8 relative z-10">
+		<div class="navbar px-0 py-8 relative z-10">
 			<div class="navbar-start lg:w-auto">
 				<div class="dropdown">
 					<label
@@ -119,6 +123,8 @@
 					class="btn bg-purple-500 hover:bg-indigo-700 border-none text-white py-3.5 px-4 h-auto min-h-min capitalize tracking-wider"
 					>Request demo</a
 				>
+
+				<ThemeController />
 			</div>
 		</div>
 		<header class="relative">

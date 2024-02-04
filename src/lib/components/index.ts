@@ -2,7 +2,6 @@
 export { default as Button } from './Actions/Button.svelte';
 export { default as Dropdown } from './Actions/Dropdown.svelte';
 export { default as Modal } from './Actions/Modal.svelte';
-export { default as Swap } from './Actions/Swap.svelte';
 export { default as ThemeController } from './Actions/ThemeController.svelte';
 
 // DataDisplay
