@@ -1,8 +1,9 @@
 <!-- Build with JS https://www.embla-carousel.com/ -->
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import { onMount } from 'svelte';
 	import { Image, Button } from '$lib/components';
+	import { writable } from 'svelte/store';
+	import { fade } from 'svelte/transition';
 
 	export let isAutoPlay = false;
 	export let lightBoxEnable = false;
@@ -31,7 +32,7 @@
 	function onInit(event) {
 		emblaApi = event.detail;
 		emblaApi.on('select', onSettle);
-		console.log(emblaApi.slideNodes()); // Access API
+		console.log(emblaApi.slideNodes());
 	}
 
 	const onSettle = () => {
@@ -54,6 +55,12 @@
 	const thumbnailsClick = (event) => {
 		selectedIndex = event.detail.index;
 		emblaApi.scrollTo(selectedIndex);
+	};
+
+	const onThumbnailSelect = (index: number) => () => {
+		if (!$thumbnails?.clickAllowed()) return;
+		$gallery?.scrollTo(index);
+		$thumbnails?.scrollTo(index);
 	};
 
 	const toggleLightBox = (event) => {
@@ -97,6 +104,14 @@
 			alt: 'Burger'
 		}
 	];
+	const gallery = writable<EmblaCarouselType>();
+	const thumbnails = writable<EmblaCarouselType>();
+
+	$: selected = $gallery?.selectedScrollSnap() ?? 0;
+	const onGallerySelect = () => {
+		selected = $gallery?.selectedScrollSnap() ?? 0;
+		$thumbnails?.scrollTo(selectedIndex);
+	};
 </script>
 
 <div
@@ -119,7 +134,7 @@
 			>→</Button
 		>
 	{/if}
-	{#if dotMode}
+	{#if dotMode && !galleryMode}
 		<!-- flex gap-6 absolute bottom-3 justify-center w-full -->
 		<div class="embla__dots">
 			{#each slides as slide, index (slide.src)}
@@ -135,6 +150,34 @@
 		</div>
 	{/if}
 </div>
+
+{#if galleryMode}
+	<div
+		class="overflow-hidden mt-[10px] relative z-50"
+		use:emblaCarouselSvelte={{
+			store: thumbnails
+		}}
+	>
+		<div class="grid grid-flow-col auto-cols-[89px] grid-rows-[70px] gap-x-[10px]">
+			{#each slides as slide, index (slide.src)}
+				<button
+					class="group relative rounded-[.25rem] overflow-hidden"
+					disabled={selected === index}
+					on:click={onThumbnailSelect(index)}
+				>
+					<img class="w-full h-full object-cover" src={slide.src} alt="" />
+
+					{#if selected === index}
+						<div
+							class="absolute top-0 left-0 w-full h-full bg-black opacity-60"
+							transition:fade={{ duration: 250 }}
+						/>
+					{/if}
+				</button>
+			{/each}
+		</div>
+	</div>
+{/if}
 
 <style lang="postcss">
 	.embla {

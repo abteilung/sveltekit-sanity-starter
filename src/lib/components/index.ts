@@ -45,6 +45,7 @@ export { default as Drawer } from './Layout/Drawer.svelte';
 export { default as Footer } from './Layout/Footer.svelte';
 export { default as Hero } from './Layout/Hero.svelte';
 export { default as Indicator } from './Layout/Indicator.svelte';
+export { default as Section } from './Layout/Section.svelte';
 export { default as Join } from './Layout/Join.svelte';
 
 // Navigation
