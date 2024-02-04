@@ -1,6 +1,23 @@
+<script lang="ts">
+	import { themeChange } from 'theme-change';
+
+	import { onMount } from 'svelte';
+
+	// NOTE: the element that is using one of the theme attributes must be in the DOM on mount
+	onMount(() => {
+		themeChange(false);
+		// 👆 false parameter is required for svelte
+	});
+</script>
+
 <label class="swap swap-rotate">
 	<!-- this hidden checkbox controls the state -->
-	<input type="checkbox" class="theme-controller" value="synthwave" />
+	<input
+		type="checkbox"
+		class="theme-controller"
+		value="synthwave"
+		data-toggle-theme="dark,light"
+	/>
 
 	<!-- sun icon -->
 	<svg class="swap-on fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"

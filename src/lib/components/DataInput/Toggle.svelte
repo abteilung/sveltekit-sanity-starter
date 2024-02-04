@@ -1,3 +1,6 @@
+<script lang="ts">
+</script>
+
 <input type="checkbox" class="toggle" checked />
 
 <div class="form-control">
