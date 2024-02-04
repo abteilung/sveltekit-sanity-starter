@@ -23,8 +23,8 @@
 	);
 </script>
 
-<Navbar />
 <div class="container">
+	<Navbar />
 	<Diff
 		beforeImage="https://daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a.jpg"
 		afterImage="https://daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a-blur.jpg"
