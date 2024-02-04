@@ -23,6 +23,7 @@
 		class="theme-controller"
 		value="synthwave"
 		data-toggle-theme="dark,light"
+		data-act-class="ACTIVECLASS"
 	/>
 
 	<!-- sun icon -->
